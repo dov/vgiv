@@ -1,3 +1,6 @@
+# Build a Unicode installer (ANSI targets are deprecated since NSIS 3.07).
+Unicode true
+
 #----- Include Modern UI -----#
 !include "MUI2.nsh"
 !include "FileFunc.nsh"
@@ -15,7 +18,7 @@
 !endif
 
 Name "vgiv"
-OutFile "Installvgiv-v${VERSION}-${SHORTSHA1}.exe"
+OutFile "InstallVgiv-v${VERSION}-${SHORTSHA1}.exe"
 BrandingText "vgiv Installer"
 Icon "giv-logo.ico"
 UninstallIcon "giv-logo-install.ico"
