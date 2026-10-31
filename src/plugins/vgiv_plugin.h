@@ -82,6 +82,15 @@ extern "C"
     // to a freshly heap-allocated message (free with vgiv_plugin_free_error).
     VGIV_PLUGIN_API VgivPluginImage* vgiv_plugin_load_image(const char* filename, char** error_msg);
 
+    // OPTIONAL, for formats that hold several pages in one file (multi-page
+    // TIFF). A plugin exports both or neither. vgiv_plugin_page_count returns
+    // the number of pages (>= 1, or 0 if the file can't be read);
+    // vgiv_plugin_load_page loads page `page` (0-based) like
+    // vgiv_plugin_load_image does, which is equivalent to page 0. Plugins
+    // that don't export them are treated as having a single page.
+    VGIV_PLUGIN_API int vgiv_plugin_page_count(const char* filename);
+    VGIV_PLUGIN_API VgivPluginImage* vgiv_plugin_load_page(const char* filename, int page, char** error_msg);
+
     // Frees an image returned by vgiv_plugin_load_image.
     VGIV_PLUGIN_API void vgiv_plugin_free_image(VgivPluginImage* img);
 
