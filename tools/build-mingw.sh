@@ -8,7 +8,7 @@
 # `tools/build-mingw-deps.sh` (once). Output: build/mingw-release/, a
 # staged install tree in build/mingw-release/stage/ (bin/ with exe, DLLs and
 # Qt plugins; lib/vgiv/plugins/; share/vgiv/shaders/; examples/) and, with --installer,
-# Installers/Installvgiv-v<ver>-<sha>.exe.
+# Installers/InstallVgiv-v<ver>-<sha>.exe.
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
@@ -70,5 +70,5 @@ if [ "${1:-}" = "--installer" ]; then
   rm -rf tmp
   cp -r "$STAGE" tmp
   makensis -V2 -DVERSION="$VERSION" -DSHORTSHA1="$SHORTSHA1" -DSTAGING=tmp vgiv.nsi
-  echo "Built: $ROOT/Installers/Installvgiv-v$VERSION-$SHORTSHA1.exe"
+  echo "Built: $ROOT/Installers/InstallVgiv-v$VERSION-$SHORTSHA1.exe"
 fi
