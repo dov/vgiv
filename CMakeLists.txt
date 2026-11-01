@@ -130,6 +130,7 @@ add_executable(vgiv
   src/qt/MarkTreeView.cpp
   src/qt/OpenFileDialog.cpp
   src/qt/RpcServer.cpp
+  src/qt/ThumbnailStrip.cpp
   resources/vgiv.qrc
 )
 if(WIN32)
