@@ -46,7 +46,7 @@ extern "C" bool vgiv_plugin_supports_file(const char* filename)
 
 extern "C" bool vgiv_plugin_sniff_file(const char* filename)
 {
-    FILE* fh = std::fopen(filename, "rb");
+    FILE* fh = vgiv_plugin::fopenUtf8(filename, "rb");
     if (!fh)
         return false;
     unsigned char head[12];

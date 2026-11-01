@@ -136,7 +136,7 @@ namespace
 VgivPluginImage* loadJpeg(const char* filename, const volatile int* cancel, char** error_msg, int minLongSide = 0,
                           int* fullWidth = nullptr, int* fullHeight = nullptr)
 {
-    FILE* file = std::fopen(filename, "rb");
+    FILE* file = vgiv_plugin::fopenUtf8(filename, "rb");
     if (!file)
     {
         if (error_msg)
